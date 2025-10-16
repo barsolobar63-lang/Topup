@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LA4YOU TOPUP</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      color: #ff2e2e;
+      font-size: 2.3rem;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      color: #aaa;
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      padding: 25px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    }
+
+    .card h2 {
+      text-align: center;
+      color: #ff4040;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      background-color: #2b2b2b;
+      color: white;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff2e2e;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff4040;
+    }
+
+    /* Loading Overlay */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #fff;
+      z-index: 9999;
+    }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 6px solid rgba(255,255,255,0.2);
+      border-top: 6px solid #ff2e2e;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🔥 LA4YOU TOPUP 🔥</h1>
+    <p>Top Up Game Cepat, Aman & Terpercaya</p>
+  </header>
+
+  <div class="card">
+    <h2>Form Top Up</h2>
+    <label for="game">Pilih Game</label>
+    <select id="game">
+      <option>Free Fire</option>
+      <option>Mobile Legends</option>
+      <option>PUBG Mobile</option>
+      <option>Call of Duty</option>
+      <option>Genshin Impact</option>
+    </select>
+
+    <label for="id">ID Player</label>
+    <input type="text" id="id" placeholder="Masukkan ID Game Kamu">
+
+    <label for="username">Username</label>
+    <input type="text" id="username" placeholder="Masukkan Username">
+
+    <label for="nominal">Nominal Top Up</label>
+    <select id="nominal">
+      <option>5.000</option>
+      <option>10.000</option>
+      <option>20.000</option>
+      <option>50.000</option>
+      <option>100.000</option>
+    </select>
+
+    <button id="bayarBtn">Bayar via DANA</button>
+  </div>
+
+  <div class="loading-overlay" id="loading">
+    <div class="spinner"></div>
+    <p>Sedang memproses pembayaran ke DANA...</p>
+  </div>
+
+  <footer>
+    © 2025 LA4YOU TOPUP - All Rights Reserved
+  </footer>
+
+  <script>
+    const bayarBtn = document.getElementById("bayarBtn");
+    const loading = document.getElementById("loading");
+
+    bayarBtn.addEventListener("click", () => {
+      loading.style.display = "flex";
+
+      // Simulasi proses pembayaran
+      setTimeout(() => {
+        loading.innerHTML = "<h2>Pembayaran Berhasil ✅</h2><p>Saldo akan masuk ke akun DANA kamu!</p>";
+        setTimeout(() => {
+          loading.style.display = "none";
+          loading.innerHTML = '<div class="spinner"></div><p>Sedang memproses pembayaran ke DANA...</p>';
+        }, 2500);
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
